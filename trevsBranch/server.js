@@ -29,13 +29,7 @@ app.listen(PORT, function () {
   console.log("App listening on PORT " + PORT);
 });
 app.post("/api/waitlist", function (req, res) {
-  // req.body hosts is equal to the JSON post sent from the user
-  // This works because of our body-parser middleware
   let newWaitlist = req.body;
-
-  // Using a RegEx Pattern to remove spaces from newCharacter
-  // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-  // newWaitlist.routeName = newWaitlist.name.replace(/\s+/g, "").toLowerCase();
 
   console.log(newWaitlist);
 
@@ -48,13 +42,7 @@ app.post("/api/clear", function (req, res){
   currentReservations = [];
 })
 app.post("/api/tables", function (req, res) {
-  // req.body hosts is equal to the JSON post sent from the user
-  // This works because of our body-parser middleware
   let newReservation = req.body;
-
-  // Using a RegEx Pattern to remove spaces from newCharacter
-  // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-  // newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
 
   console.log(newReservation);
   if (currentReservations.length <= 4) {
@@ -62,8 +50,6 @@ app.post("/api/tables", function (req, res) {
   } else if (currentReservations.length > 4) {
     waitingList.push(newReservation);
   }
-
-
 
   res.json(newReservation);
 });
