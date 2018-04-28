@@ -44,6 +44,7 @@ app.post("/api/clear", function (req, res){
 app.post("/api/tables", function (req, res) {
   let newReservation = req.body;
 
+  
   console.log(newReservation);
   if (currentReservations.length <= 4) {
     currentReservations.push(newReservation);
